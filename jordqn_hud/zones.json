@@ -1,0 +1,370 @@
+[
+    {
+        "zone": "AIRP",
+        "name": "Los Santos International Airport"
+    },
+    {
+        "zone": "ALAMO",
+        "name": "Alamo Sea"
+    },
+    {
+        "zone": "ALTA",
+        "name": "Alta"
+    },
+    {
+        "zone": "ARMYB",
+        "name": "Fort Zancudo"
+    },
+    {
+        "zone": "BANHAMC",
+        "name": "Banham Canyon Dr"
+    },
+    {
+        "zone": "BANNING",
+        "name": "Banning"
+    },
+    {
+        "zone": "BEACH",
+        "name": "Vespucci Beach"
+    },
+    {
+        "zone": "BHAMCA",
+        "name": "Banham Canyon"
+    },
+    {
+        "zone": "BRADP",
+        "name": "Braddock Pass"
+    },
+    {
+        "zone": "BRADT",
+        "name": "Braddock Tunnel"
+    },
+    {
+        "zone": "BURTON",
+        "name": "Burton"
+    },
+    {
+        "zone": "CALAFB",
+        "name": "Calafia Bridge"
+    },
+    {
+        "zone": "CANNY",
+        "name": "Raton Canyon"
+    },
+    {
+        "zone": "CCREAK",
+        "name": "Cassidy Creek"
+    },
+    {
+        "zone": "CHAMH",
+        "name": "Chamberlain Hills"
+    },
+    {
+        "zone": "CHIL",
+        "name": "Vinewood Hills"
+    },
+    {
+        "zone": "CHU",
+        "name": "Chumash"
+    },
+    {
+        "zone": "CMSW",
+        "name": "Chiliad Mountain State Wilderness"
+    },
+    {
+        "zone": "CYPRE",
+        "name": "Cypress Flats"
+    },
+    {
+        "zone": "DAVIS",
+        "name": "Davis"
+    },
+    {
+        "zone": "DELBE",
+        "name": "Del Perro Beach"
+    },
+    {
+        "zone": "DELPE",
+        "name": "Del Perro"
+    },
+    {
+        "zone": "DELSOL",
+        "name": "La Puerta"
+    },
+    {
+        "zone": "DESRT",
+        "name": "Grand Senora Desert"
+    },
+    {
+        "zone": "DOWNT",
+        "name": "Downtown"
+    },
+    {
+        "zone": "DTVINE",
+        "name": "Downtown Vinewood"
+    },
+    {
+        "zone": "EAST_V",
+        "name": "East Vinewood"
+    },
+    {
+        "zone": "EBURO",
+        "name": "El Burro Heights"
+    },
+    {
+        "zone": "ELGORL",
+        "name": "El Gordo Lighthouse"
+    },
+    {
+        "zone": "ELYSIAN",
+        "name": "Elysian Island"
+    },
+    {
+        "zone": "GALFISH",
+        "name": "Galilee"
+    },
+    {
+        "zone": "GOLF",
+        "name": "GWC and Golfing Society"
+    },
+    {
+        "zone": "GRAPES",
+        "name": "Grapeseed"
+    },
+    {
+        "zone": "GREATC",
+        "name": "Great Chaparral"
+    },
+    {
+        "zone": "HARMO",
+        "name": "Harmony"
+    },
+    {
+        "zone": "HAWICK",
+        "name": "Hawick"
+    },
+    {
+        "zone": "HORS",
+        "name": "Vinewood Racetrack"
+    },
+    {
+        "zone": "HUMLAB",
+        "name": "Humane Labs and Research"
+    },
+    {
+        "zone": "JAIL",
+        "name": "Bolingbroke Penitentiary"
+    },
+    {
+        "zone": "KOREAT",
+        "name": "Little Seoul"
+    },
+    {
+        "zone": "LACT",
+        "name": "Land Act Reservoir"
+    },
+    {
+        "zone": "LAGO",
+        "name": "Lago Zancudo"
+    },
+    {
+        "zone": "LDAM",
+        "name": "Land Act Dam"
+    },
+    {
+        "zone": "LEGSQU",
+        "name": "Legion Square"
+    },
+    {
+        "zone": "LMESA",
+        "name": "La Mesa"
+    },
+    {
+        "zone": "LOSPUER",
+        "name": "La Puerta"
+    },
+    {
+        "zone": "MIRR",
+        "name": "Mirror Park"
+    },
+    {
+        "zone": "MORN",
+        "name": "Morningwood"
+    },
+    {
+        "zone": "MOVIE",
+        "name": "Richards Majestic"
+    },
+    {
+        "zone": "MTCHIL",
+        "name": "Mount Chiliad"
+    },
+    {
+        "zone": "MTGORDO",
+        "name": "Mount Gordo"
+    },
+    {
+        "zone": "MTJOSE",
+        "name": "Mount Josiah"
+    },
+    {
+        "zone": "MURRI",
+        "name": "Murrieta Heights"
+    },
+    {
+        "zone": "NCHU",
+        "name": "North Chumash"
+    },
+    {
+        "zone": "NOOSE",
+        "name": "N.O.O.S.E"
+    },
+    {
+        "zone": "OCEANA",
+        "name": "Pacific Ocean"
+    },
+    {
+        "zone": "PALCOV",
+        "name": "Paleto Cove"
+    },
+    {
+        "zone": "PALETO",
+        "name": "Paleto Bay"
+    },
+    {
+        "zone": "PALFOR",
+        "name": "Paleto Forest"
+    },
+    {
+        "zone": "PALHIGH",
+        "name": "Palomino Highlands"
+    },
+    {
+        "zone": "PALMPOW",
+        "name": "Palmer-Taylor Power Station"
+    },
+    {
+        "zone": "PBLUFF",
+        "name": "Pacific Bluffs"
+    },
+    {
+        "zone": "PBOX",
+        "name": "Pillbox Hill"
+    },
+    {
+        "zone": "PROCOB",
+        "name": "Procopio Beach"
+    },
+    {
+        "zone": "RANCHO",
+        "name": "Rancho"
+    },
+    {
+        "zone": "RGLEN",
+        "name": "Richman Glen"
+    },
+    {
+        "zone": "RICHM",
+        "name": "Richman"
+    },
+    {
+        "zone": "ROCKF",
+        "name": "Rockford Hills"
+    },
+    {
+        "zone": "RTRAK",
+        "name": "Redwood Lights Track"
+    },
+    {
+        "zone": "SANAND",
+        "name": "San Andreas"
+    },
+    {
+        "zone": "SANCHIA",
+        "name": "San Chianski Mountain Range"
+    },
+    {
+        "zone": "SANDY",
+        "name": "Sandy Shores"
+    },
+    {
+        "zone": "SKID",
+        "name": "Mission Row"
+    },
+    {
+        "zone": "SLAB",
+        "name": "Stab City"
+    },
+    {
+        "zone": "STAD",
+        "name": "Maze Bank Arena"
+    },
+    {
+        "zone": "STRAW",
+        "name": "Strawberry"
+    },
+    {
+        "zone": "TATAMO",
+        "name": "Terminal"
+    },
+    {
+        "zone": "TEXTI",
+        "name": "Textile City"
+    },
+    {
+        "zone": "TONGVAH",
+        "name": "Tongva Hills"
+    },
+    {
+        "zone": "TONGVAV",
+        "name": "Tongva Valley"
+    },
+    {
+        "zone": "VCANA",
+        "name": "Vespucci Canals"
+    },
+    {
+        "zone": "VESP",
+        "name": "Vespucci"
+    },
+    {
+        "zone": "VINE",
+        "name": "Vinewood"
+    },
+    {
+        "zone": "WINDF",
+        "name": "Ron Alternates Wind Farm"
+    },
+    {
+        "zone": "WVINE",
+        "name": "West Vinewood"
+    },
+    {
+        "zone": "ZANCUDO",
+        "name": "Zancudo River"
+    },
+    {
+        "zone": "ZP_ORT",
+        "name": "Port of South Los Santos"
+    },
+    {
+        "zone": "ZQ_UAR",
+        "name": "Davis Quartz"
+    },
+    {
+        "zone": "PROL",
+        "name": "North Yankton"
+    },
+    {
+        "zone": "ISHEIST",
+        "name": "Cayo Perico Island"
+    },
+    {
+        "zone": "GALLI",
+        "name": "Galileo"
+    },
+    {
+        "zone": "OBSERV",
+        "name": "Galileo"
+    }
+]
