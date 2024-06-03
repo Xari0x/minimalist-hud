@@ -1,5 +1,3 @@
--- MADE BY JORDQN
-
 postals = nil
 zones = {}
 
@@ -174,6 +172,9 @@ end)
 
 local hunger = 100
 local thirst = 100
+local voice_type = "mic_mute.png"
+local voice_talking = false
+local voice_radio = false
 
 exports("setThirst", function(val)
     thirst = val
@@ -183,15 +184,43 @@ exports("setHunger", function(val)
     hunger = val
 end)
 
+exports("setVoiceDistance", function(val)
+    if(val == 1) then
+        voice_type = "mic_mute.png"
+    end
+    if(val == 1) then
+        voice_type = "mic_one.png"
+    end
+    if(val == 2) then
+        voice_type = "mic_two.png"
+    end 
+    if(val == 3) then
+        voice_type = "mic_three.png"
+    end
+end)
+
+exports("setVoiceRadio", function(toggle)
+    voice_radio = toggle
+end)
+
+exports("setVoiceTalking", function(toggle)
+    voice_talking = toggle
+end)
+
 Citizen.CreateThread(function()
-    NetworkOverrideClockTime(12, 0, 0)
-    SetPedArmour(PlayerPedId(), 100)
     while true do
+        local voice = voice_type
+        if voice_radio then
+            voice = "mic_radio.png"
+        end
         if Config.status == true then
             local data = {
                 component="status",
                 hungerVisible=Config.enableHunger,
                 thirstVisible=Config.enableThirst,
+                voiceVisible=Config.enableVoice,
+                voiceType=voice,
+                voiceTalking=voice_talking,
                 health=GetEntityHealth(PlayerPedId()),
                 maxhealth=GetEntityMaxHealth(PlayerPedId()),
                 armor=GetPedArmour(PlayerPedId()),
@@ -203,6 +232,76 @@ Citizen.CreateThread(function()
         else
             local data = {
                 component="status",
+                visible=false
+            }
+            SendNuiMessage(json.encode(data))
+        end
+        Wait(1)
+    end
+end)
+
+--
+-- HUD SPEEDOMETER
+--
+
+local seatbelt = false
+
+exports("setSeatBelt", function(toggle)
+    seatbelt = toggle
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        if Config.status == true then
+            if IsPedInAnyVehicle(PlayerPedId()) then
+                local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+                if DoesEntityExist(vehicle) then
+                    local maxSpeed = GetVehicleEstimatedMaxSpeed(vehicle)*3.6
+                    local speed = GetEntitySpeed(vehicle)*3.6
+
+                    if Config.useMiles then
+                        maxSpeed = GetVehicleEstimatedMaxSpeed(vehicle)*2.236936
+                        speed = GetEntitySpeed(vehicle)*2.236936
+                    end
+
+                    local maxFuel = GetVehicleHandlingFloat(vehicle, 'CHandlingData', 'fPetrolTankVolume')
+                    local fuel = GetVehicleFuelLevel(vehicle)
+
+                    local _,_,highbeams = GetVehicleLightsState(vehicle)
+
+                    local engine = GetIsVehicleEngineRunning(vehicle)
+                    
+                    local data = {
+                        component="speedometer",
+                        seatbeltVisible=Config.enableSeatBelt,
+                        fuelVisible=Config.enableFuel,
+                        useMiles=Config.useMiles,
+                        speed=speed,
+                        maxspeed=maxSpeed,
+                        fuel=fuel,
+                        maxfuel=maxFuel,
+                        highbeams=highbeams,
+                        engine=engine,
+                        seatbelt=seatbelt
+                    }
+                    SendNuiMessage(json.encode(data))
+                else
+                    local data = {
+                        component="speedometer",
+                        visible=false
+                    }
+                    SendNuiMessage(json.encode(data))
+                end
+            else
+                local data = {
+                    component="speedometer",
+                    visible=false
+                }
+                SendNuiMessage(json.encode(data))
+            end
+        else
+            local data = {
+                component="speedometer",
                 visible=false
             }
             SendNuiMessage(json.encode(data))

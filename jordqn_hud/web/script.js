@@ -1,5 +1,6 @@
 const locationWindow = document.getElementById("location");
 const statusWindow = document.getElementById("status");
+const speedometerWindow = document.getElementById("speedometer");
 
 const arrow = document.getElementById("arrow");
 const direction = document.getElementById("direction");
@@ -23,10 +24,27 @@ const armorbar = document.getElementById("armor")
 const thirstbar = document.getElementById("thirst")
 const foodbar = document.getElementById("food")
 const oxygenbar = document.getElementById("oxygen")
+const voice = document.getElementById("voice")
+
+const speed = document.getElementById("speed-svg");
+const speedtextkm = document.getElementById("speedtextkm")
+const speedtextmiles = document.getElementById("speedtextmiles")
+const fuel = document.getElementById("fuel-svg");
+const fuel_path = document.getElementById("fuel-path");
+const fuel_icon = document.getElementById("fuel-icon");
+
+const seatbelt = document.getElementById("seatbelt");
+const engine = document.getElementById("engine");
+const highbeams = document.getElementById("beam");
+
+
+let left = 0
 
 window.addEventListener('message', (event) => {
+
     if(event.data.component == "position"){
         if(event.data.visible == null){
+            left = 1
             locationWindow.style.opacity = 1
             arrow.style.rotate = -event.data.heading + "deg"
 
@@ -36,6 +54,7 @@ window.addEventListener('message', (event) => {
             streetname.innerText = event.data.street
             zone.innerText = event.data.zone
         }else{
+            left = 0
             locationWindow.style.opacity = 0
         }
     }
@@ -45,7 +64,20 @@ window.addEventListener('message', (event) => {
             statusWindow.style.opacity = 1
             if(event.data.hungerVisible) { foodcontainer.style.display = "block" }else{ foodcontainer.style.display = "none" }
             if(event.data.thirstVisible) { thirstcontainer.style.display = "block" }else{ thirstcontainer.style.display = "none" }
+            if(event.data.voiceVisible) { voice.style.display = "block" }else{ voice.style.display = "none" }
             
+            if(event.data.voiceTalking == true){
+                if(voice.classList.contains("disabled")){
+                    voice.classList.remove("disabled")
+                }
+            }else{
+                if(!voice.classList.contains("disabled")){
+                    voice.classList.add("disabled")
+                }
+            }
+
+            voice.src = event.data.voiceType
+
             let health = Math.round((event.data.health * 100)/event.data.maxhealth)
             if(health > 100){health = 100}
             let armor = Math.round((event.data.armor * 100)/100)
@@ -88,4 +120,68 @@ window.addEventListener('message', (event) => {
             statusWindow.style.opacity = 0
         }
     }
+
+    if(event.data.component == "speedometer"){
+        if(event.data.visible == null){
+            if(event.data.seatbeltVisible) { seatbelt.style.display = "block" }else{ seatbelt.style.display = "none" }
+            if(event.data.fuelVisible) { fuel.style.display = "block"; fuel_path.style.display = "block"; fuel_icon.style.display = "block"; }else{ fuel.style.display = "none"; fuel_path.style.display = "none"; fuel_icon.style.display = "none"; }
+            speedometerWindow.style.opacity = left
+            let percent_speed = (event.data.speed*100)/(event.data.maxspeed+50)
+            let percent_fuel = (event.data.fuel*100)/(event.data.maxfuel)
+            setDashedGaugeValue(speed, percent_speed, 219.911485751);
+            setDashedGaugeValue(fuel, percent_fuel, 87.9645943005);
+            speedtextkm.innerText = Math.round(event.data.speed)
+            speedtextmiles.innerText = Math.round(event.data.speed)
+
+            if(event.data.useMiles == true){
+                speedtextkm.style.display = "none"
+                speedtextmiles.style.display = "block"
+            }else{
+                speedtextkm.style.display = "block"
+                speedtextmiles.style.display = "none"
+            }
+
+            if(event.data.highbeams == 1){
+                if(highbeams.classList.contains("disabled")){
+                    highbeams.classList.remove("disabled")
+                }
+            }else{
+                if(!highbeams.classList.contains("disabled")){
+                    highbeams.classList.add("disabled")
+                }
+            }
+
+            if(event.data.engine == 1){
+                if(engine.classList.contains("disabled")){
+                    engine.classList.remove("disabled")
+                }
+            }else{
+                if(!engine.classList.contains("disabled")){
+                    engine.classList.add("disabled")
+                }
+            }
+
+            if(event.data.seatbelt == true){
+                if(seatbelt.classList.contains("disabled")){
+                    seatbelt.classList.remove("disabled")
+                }
+            }else{
+                if(!seatbelt.classList.contains("disabled")){
+                    seatbelt.classList.add("disabled")
+                }
+            }
+        }else{
+            speedometerWindow.style.opacity = left
+        }
+    }
 })
+
+function setDashedGaugeValue(gaugeDOMElement, percentage, arcLength) {
+    const emptyDashLength = 500;
+    const filledArcLength = arcLength * (percentage / 100);
+    gaugeDOMElement.style.strokeDasharray = `${filledArcLength} ${emptyDashLength}`;
+    gaugeDOMElement.style.strokeDashoffset = filledArcLength;
+}
+
+setDashedGaugeValue(speed, 0, 219.911485751);
+setDashedGaugeValue(fuel, 0, 87.9645943005);

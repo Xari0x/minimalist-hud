@@ -10,6 +10,20 @@
     <script defer src="script.js"></script>
 </head>
 <body>
+    <section id="speedometer">
+        <span id="speedtextkm">0</span>
+        <span id="speedtextmiles">0</span>
+        <img id="fuel-icon" class="fuel" src="gas.png">
+        <img id="beam" class="beam" src="beam.png">
+        <img id="engine" class="engine" src="engine.png">
+        <img id="seatbelt" class="seatbelt" src="seatbelt.png">
+        <svg id="speed" viewbox="0 0 200 120">
+            <path class="speedpath" d="M 20 90 A 50 50 0 1 1 100 90" fill='none' />
+            <path id="speed-svg" fill='none' class="speedvalue" d="M 20 90 A 50 50 0 1 1 100 90" />
+            <path id="fuel-path" class="fuelpath" d="M 109 90 A 20 20 0 1 0 118 58" fill='none' />
+            <path id="fuel-svg" fill='none' class="fuelvalue" d="M 109 90 A 20 20 0 1 0 118 58" />
+        </svg>
+    </section>
     <section id="location">
         <img id="arrow" src="arrow.png">
         <span id="zone">Terminal</span>
@@ -21,6 +35,7 @@
         </div>
     </section>
     <section id="status">
+        <img id="voice" class="voice" src="mic_mute.png">
         <div id="oxygencontainer" class="oxygen">
             <span class="title">Oxygen</span>
             <img src="oxygen.png">
