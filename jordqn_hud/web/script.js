@@ -124,8 +124,8 @@ window.addEventListener('message', (event) => {
     if(event.data.component == "speedometer"){
         if(event.data.visible == null){
             if(event.data.seatbeltVisible) { seatbelt.style.display = "block" }else{ seatbelt.style.display = "none" }
-            if(event.data.fuelVisible) { fuel.style.display = "block"; fuel_path.style.display = "block"; fuel_icon.style.display = "block"; }else{ fuel.style.display = "none"; fuel_path.style.display = "none"; fuel_icon.style.display = "none"; }
-            speedometerWindow.style.opacity = left
+            if(event.data.fuelVisible) { speedometerWindow.style.marginLeft = '0px';fuel.style.display = "block"; fuel_path.style.display = "block"; fuel_icon.style.display = "block"; }else{ speedometerWindow.style.marginLeft = '10px';fuel.style.display = "none"; fuel_path.style.display = "none"; fuel_icon.style.display = "none"; }
+            speedometerWindow.style.opacity = 1
             let percent_speed = (event.data.speed*100)/(event.data.maxspeed+50)
             let percent_fuel = (event.data.fuel*100)/(event.data.maxfuel)
             setDashedGaugeValue(speed, percent_speed, 219.911485751);
@@ -133,12 +133,38 @@ window.addEventListener('message', (event) => {
             speedtextkm.innerText = Math.round(event.data.speed)
             speedtextmiles.innerText = Math.round(event.data.speed)
 
+            if(event.data.iselectric == true){
+                fuel_icon.src = "battery.png"
+            }else{
+                fuel_icon.src = "gas.png"
+            }
+
             if(event.data.useMiles == true){
                 speedtextkm.style.display = "none"
                 speedtextmiles.style.display = "block"
             }else{
                 speedtextkm.style.display = "block"
                 speedtextmiles.style.display = "none"
+            }
+
+            if(event.data.hasmotor == true){
+                highbeams.style.display = "block"
+                engine.style.display = "block"
+                seatbelt.style.display = "block"
+                fuel.style.display = "block"
+                fuel_path.style.display = "block"
+                fuel_icon.style.display = "block"
+                speedometerWindow.style.marginLeft = '0px'
+                speedometerWindow.style.marginBottom = '0px'
+            }else{
+                highbeams.style.display = "none"
+                engine.style.display = "none"
+                seatbelt.style.display = "none"
+                fuel.style.display = "none"
+                fuel_path.style.display = "none"
+                fuel_icon.style.display = "none"
+                speedometerWindow.style.marginLeft = '10px'
+                speedometerWindow.style.marginBottom = '-10px'
             }
 
             if(event.data.highbeams == 1){
@@ -171,8 +197,16 @@ window.addEventListener('message', (event) => {
                 }
             }
         }else{
-            speedometerWindow.style.opacity = left
+            speedometerWindow.style.opacity = 0
         }
+    }
+
+    if(event.data.component == "configuration"){
+        locationWindow.style.left = event.data.locationleft + "px"
+        locationWindow.style.bottom = event.data.locationbottom + "px"
+        statusWindow.style.right = event.data.statusright + "px"
+        statusWindow.style.bottom = event.data.statusbottom + "px"
+        speedometerWindow.style.bottom = event.data.speedometerbottom + "px"
     }
 })
 

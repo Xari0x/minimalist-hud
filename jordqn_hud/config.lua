@@ -1,10 +1,24 @@
 Config = {}
 
- -- Activates/deactivates the position hud next to the minimap. [default = true]
-Config.location = true
+ -- Configure the location component.
+Config.location = {
+    enabled = true, -- Default = true
+    left = 310, -- Default = 310
+    bottom = 30 -- Default = 30
+}
 
- -- Enables/disables status hud (health, hunger, thirst, armor). [default = true]
-Config.status = true
+ -- Configure the speedometer component.
+Config.speedometer = {
+    enabled = true, -- Default = true
+    bottom = -50 -- Default = -50
+}
+
+ -- Configure the status component.
+Config.status = {
+    enabled = true, -- Default = true
+    right = 20, -- Default = 20
+    bottom = 30 -- Default = 30
+}
 
  -- Activates/deactivates GTA's vanilla hud for life and armor. [default = false]
 Config.vanilla = false 
@@ -32,3 +46,29 @@ Config.enableVoice = true
 
 -- Determines whether you want to use miles or kilometers. [default = true]
 Config.useMiles = true
+
+-- List of electric vehicles.
+Config.electricVehicles = {
+    "buffalo5",
+    "cyclone",
+    "cyclone2",
+    "dilettante",
+    "dilettante2",
+    "iwagen",
+    "imorgon",
+    "khamelion",
+    "coureur",
+    "neon",
+    "omnisegt",
+    "powersurge",
+    "raiden",
+    "voltic2",
+    "surge",
+    "tezeract",
+    "virtue",
+    "voltic",
+    "caddy",
+    "caddy2",
+    "caddy3",
+    "airtug"
+}

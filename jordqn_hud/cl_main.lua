@@ -133,7 +133,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        if not IsRadarHidden() and Config.location == true then
+        if not IsRadarHidden() and Config.location.enabled == true then
             local coords = GetEntityCoords(PlayerPedId())
             local zone = GetNameOfZone(coords.x, coords.y, coords.z);
             local streetname, _ = GetStreetNameAtCoord(coords.x, coords.y, coords.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger())
@@ -213,7 +213,7 @@ Citizen.CreateThread(function()
         if voice_radio then
             voice = "mic_radio.png"
         end
-        if Config.status == true then
+        if Config.status.enabled == true then
             local data = {
                 component="status",
                 hungerVisible=Config.enableHunger,
@@ -252,7 +252,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        if Config.status == true then
+        if Config.speedometer.enabled == true then
             if IsPedInAnyVehicle(PlayerPedId()) then
                 local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
                 if DoesEntityExist(vehicle) then
@@ -266,6 +266,17 @@ Citizen.CreateThread(function()
 
                     local maxFuel = GetVehicleHandlingFloat(vehicle, 'CHandlingData', 'fPetrolTankVolume')
                     local fuel = GetVehicleFuelLevel(vehicle)
+                    local hasMotor = true
+                    local isElectric = false
+                    if maxFuel < 5.0 then
+                        hasMotor = false
+                    end
+                    for _,v in ipairs(Config.electricVehicles) do
+                        if GetHashKey(v) == GetEntityModel(vehicle) then
+                            isElectric = true
+                            break
+                        end
+                    end
 
                     local _,_,highbeams = GetVehicleLightsState(vehicle)
 
@@ -279,6 +290,8 @@ Citizen.CreateThread(function()
                         speed=speed,
                         maxspeed=maxSpeed,
                         fuel=fuel,
+                        hasmotor=hasMotor,
+                        iselectric=isElectric,
                         maxfuel=maxFuel,
                         highbeams=highbeams,
                         engine=engine,
@@ -308,4 +321,20 @@ Citizen.CreateThread(function()
         end
         Wait(1)
     end
+end)
+
+-- 
+-- CONFIGURATION
+-- 
+
+Citizen.CreateThread(function()
+    local data = {
+        component="configuration",
+        locationleft=Config.location.left,
+        locationbottom=Config.location.bottom,
+        statusright=Config.status.right,
+        statusbottom=Config.status.bottom,
+        speedometerbottom=Config.speedometer.bottom
+    }
+    SendNuiMessage(json.encode(data))
 end)
