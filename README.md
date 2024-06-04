@@ -1,4 +1,4 @@
-![whiteig|690x85](https://forum-cfx-re.akamaized.net/original/5X/6/8/f/0/68f0591269bea9bbbd8f1e801a92de11ac99a397.jpeg)
+![default|690x93](https://forum-cfx-re.akamaized.net/original/5X/f/f/1/8/ff180d0cc4104c2085b23fa740e64677dd7b3bde.jpeg)
 
 Good evening! I'm putting a free HUD script at your disposal. I made it pretty quickly, so if there's any problem, don't hesitate to let me know! I know I'm not an optimization pro.
 
@@ -6,7 +6,8 @@ You can ask me to add things as needed, I don't mind and it will make the script
 
 The script is partly configurable, both technically and visually.
 
-![customizable|690x172](https://forum-cfx-re.akamaized.net/original/5X/b/4/9/c/b49cbbeb6cf884c4f2be76f64d769d0d738c97d6.jpeg)
+![colored|690x95](https://forum-cfx-re.akamaized.net/original/5X/2/9/1/a/291a5f75c285c1cdbf2be0bbe0d774f1701398d1.jpeg)
+![colorconfig|350x328](https://forum-cfx-re.akamaized.net/original/5X/6/0/1/7/6017eb7c2d557d65d2f9d525f74fb60c42891c63.png)
 
 # Exports
 **This is a standalone script, so here are a few exports to help you manage the display with your own scripts.**
@@ -14,17 +15,19 @@ The script is partly configurable, both technically and visually.
 exports["jordqn_hud"]:bypassRadar(boolean) -- Allows you to activate or deactivate, via your scripts, the fact of having the radar permanently outside your vehicles (if the option is active, of course).
 exports["jordqn_hud"]:setThirst(value) -- Set thirst level.
 exports["jordqn_hud"]:setHunger(value) -- Set hunger level.
+exports["jordqn_hud"]:setVoiceDistance(0, 1, 2, 3) -- Set voice distance on HUD. (0 = mute, 1 = short, 2 = medium, 3 = long)
+exports["jordqn_hud"]:setVoiceTalking(boolean) -- Displays whether the player is speaking or not.
+exports["jordqn_hud"]:setVoiceRadio(boolean) -- Displays whether the player is speaking on the radio or not.
+exports["jordqn_hud"]:setSeatBelt(boolean) -- Defines whether the belt is fastened or not.
 ```
 
+**PS: The fuel level is managed by your vehicle's handling and via the native GetVehicleFuelLevel. If you use another method to manage your fuel, please don't hesitate to contact me so we can look into it together.**
+
 # Previews
-In vehicle preview: https://streamable.com/jtni75
+In vehicle preview: https://streamable.com/fpkn4t
 In water preview: https://streamable.com/4hm6j4
 
-# Files
-**Config file**
-![config|690x387](https://forum-cfx-re.akamaized.net/original/5X/9/0/a/5/90a529c2243d3dbf95a4656e2faa4f9f5c403b19.png)
-
-**CSS file**
-![whitecss|349x271](https://forum-cfx-re.akamaized.net/original/5X/f/a/a/3/faa3e54cd1e5ba4491d90c6898d0ba27c3a0f57c.png)
+# Configuration
+![config|583x500](https://forum-cfx-re.akamaized.net/original/5X/e/1/0/d/e10dfbc285d294cd5f194da8e41d77cbf87e706c.png)
 
 This script works with [nearest-postal](https://github.com/DevBlocky/nearest-postal/tree/master) zips codes.
