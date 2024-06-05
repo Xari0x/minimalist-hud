@@ -3,6 +3,8 @@ zones = {}
 
 hudvisible = true
 
+local QBCore = nil
+
 exports("hudVisibility", function(toggle)
     hudvisible = toggle
 end)
@@ -226,7 +228,9 @@ Citizen.CreateThread(function()
             end
         end)
     end
-    local QBCore = exports['qb-core']:GetCoreObject()
+    if Config.framework == "qbcore" then
+        QBCore = exports['qb-core']:GetCoreObject()
+    end
     while true do
         ::redo::
         Wait(Config.globalUpdateTime)
