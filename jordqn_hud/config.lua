@@ -1,5 +1,14 @@
 Config = {}
 
+ -- Can be "qbcore", "esx" or "standalone".
+Config.framework = "standalone" -- Default = "standalone"
+
+ -- Toggle LegacyFuel hook.
+Config.LegacyFuel = false -- Default = false
+
+ -- Toggle pmaVoice hook.
+Config.pmaVoice = false -- Default = false
+
  -- Configure the location component.
 Config.location = {
     enabled = true, -- Default = true

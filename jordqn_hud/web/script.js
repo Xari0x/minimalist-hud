@@ -90,6 +90,11 @@ window.addEventListener('message', (event) => {
             let food = Math.round((event.data.hunger * 100)/100)
 
             let oxygen = Math.round((event.data.oxygen * 100)/40)
+
+            if(event.data.framework == "qbcore" || event.data.framework == "esx"){
+                oxygen = Math.round((event.data.oxygen * 100)/10)
+            }
+
             if(oxygen < 0){oxygen = 0}
 
             if(oxygen != 100){
@@ -117,7 +122,11 @@ window.addEventListener('message', (event) => {
             oxygenbar.style.width = (oxygen*150)/100 + "px"
             oxygenbar.style.setProperty('--size', 150-((oxygen*150)/100) + "px");
         }else{
-            statusWindow.style.opacity = 0
+            if(event.data.visible == true){
+                statusWindow.style.opacity = 1
+            }else{
+                statusWindow.style.opacity = 0
+            }
         }
     }
 
@@ -128,6 +137,9 @@ window.addEventListener('message', (event) => {
             speedometerWindow.style.opacity = 1
             let percent_speed = (event.data.speed*100)/(event.data.maxspeed+50)
             let percent_fuel = (event.data.fuel*100)/(event.data.maxfuel)
+            if(event.data.framework == "qbcore"){
+                percent_fuel = event.data.fuel
+            }
             setDashedGaugeValue(speed, percent_speed, 219.911485751);
             setDashedGaugeValue(fuel, percent_fuel, 87.9645943005);
             speedtextkm.innerText = Math.round(event.data.speed)

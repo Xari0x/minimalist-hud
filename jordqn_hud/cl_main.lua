@@ -1,6 +1,12 @@
 postals = nil
 zones = {}
 
+hudvisible = true
+
+exports("hudVisibility", function(toggle)
+    hudvisible = toggle
+end)
+
 --
 -- HIDE HEALTH
 --
@@ -133,7 +139,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        if not IsRadarHidden() and Config.location.enabled == true then
+        if not IsRadarHidden() and Config.location.enabled == true and hudvisible == true then
             local coords = GetEntityCoords(PlayerPedId())
             local zone = GetNameOfZone(coords.x, coords.y, coords.z);
             local streetname, _ = GetStreetNameAtCoord(coords.x, coords.y, coords.z, Citizen.ResultAsInteger(), Citizen.ResultAsInteger())
@@ -208,14 +214,52 @@ exports("setVoiceTalking", function(toggle)
 end)
 
 Citizen.CreateThread(function()
+    if Config.framework == "esx" then
+        AddEventHandler("esx_status:onTick", function(data)
+            for i = 1, #data do
+                if data[i].name == "thirst" then
+                    thirst = math.floor(data[i].percent)
+                end
+                if data[i].name == "hunger" then
+                    hunger = math.floor(data[i].percent)
+                end
+            end
+        end)
+    end
     while true do
+        ::redo::
+        Wait(1)
         local voice = voice_type
         if voice_radio then
             voice = "mic_radio.png"
         end
-        if Config.status.enabled == true then
+        if Config.status.enabled == true and hudvisible == true then
+            if(Config.framework == "qbcore") then
+                local QBCore = exports['qb-core']:GetCoreObject()
+                local PlayerData = QBCore.Functions.GetPlayerData()
+                if(PlayerData.metadata ~= nil) then
+                    hunger = PlayerData.metadata['hunger']
+                    thirst = PlayerData.metadata['thirst']
+                else
+                    local data = {
+                        component="status",
+                        visible=false
+                    }
+                    SendNuiMessage(json.encode(data))
+                    goto redo
+                end
+            end
+            if(Config.pmaVoice == true) then
+                exports["jordqn_hud"]:setVoiceDistance(LocalPlayer.state.proximity.index)
+                if MumbleIsPlayerTalking(PlayerId()) == false then
+                    voice_talking = false
+                else
+                    voice_talking = true
+                end
+            end
             local data = {
                 component="status",
+                framework=Config.framework,
                 hungerVisible=Config.enableHunger,
                 thirstVisible=Config.enableThirst,
                 voiceVisible=Config.enableVoice,
@@ -236,7 +280,16 @@ Citizen.CreateThread(function()
             }
             SendNuiMessage(json.encode(data))
         end
-        Wait(1)
+    end
+end)
+
+--
+-- PMA VOICE
+--
+
+AddEventHandler("pma-voice:radioActive", function(toggle)
+    if(Config.pmaVoice == true) then
+        voice_radio = toggle
     end
 end)
 
@@ -252,7 +305,7 @@ end)
 
 Citizen.CreateThread(function()
     while true do
-        if Config.speedometer.enabled == true then
+        if Config.speedometer.enabled == true and hudvisible == true then
             if IsPedInAnyVehicle(PlayerPedId()) then
                 local vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
                 if DoesEntityExist(vehicle) then
@@ -271,6 +324,9 @@ Citizen.CreateThread(function()
                     if maxFuel < 5.0 then
                         hasMotor = false
                     end
+                    if(Config.LegacyFuel == true) then
+                        fuel = math.floor(exports['LegacyFuel']:GetFuel(vehicle))
+                    end
                     for _,v in ipairs(Config.electricVehicles) do
                         if GetHashKey(v) == GetEntityModel(vehicle) then
                             isElectric = true
@@ -284,6 +340,7 @@ Citizen.CreateThread(function()
                     
                     local data = {
                         component="speedometer",
+                        framework=Config.framework,
                         seatbeltVisible=Config.enableSeatBelt,
                         fuelVisible=Config.enableFuel,
                         useMiles=Config.useMiles,
