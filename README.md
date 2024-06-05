@@ -29,7 +29,7 @@ In vehicle preview: https://streamable.com/fpkn4t
 In water preview: https://streamable.com/4hm6j4
 
 # Configuration
-![image|437x500](https://forum-cfx-re.akamaized.net/original/5X/d/8/6/a/d86a6020945f25881c782414fff5db66b83c4837.png)
+![image|417x500](https://forum-cfx-re.akamaized.net/original/5X/8/1/0/3/81038e673bd7a9826cae2892916b4ae555f681b7.png)
 ![image|415x500](https://forum-cfx-re.akamaized.net/original/5X/a/d/f/b/adfbf249e0fa6827fab06a82d5dc18bb4755ce64.png)
 
 This script works with [nearest-postal](https://github.com/DevBlocky/nearest-postal/tree/master) zips codes.
