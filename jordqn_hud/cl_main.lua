@@ -168,7 +168,7 @@ Citizen.CreateThread(function()
             }
             SendNuiMessage(json.encode(data))
         end
-        Wait(1)
+        Wait(Config.globalUpdateTime)
     end
 end)
 
@@ -226,16 +226,16 @@ Citizen.CreateThread(function()
             end
         end)
     end
+    local QBCore = exports['qb-core']:GetCoreObject()
     while true do
         ::redo::
-        Wait(1)
+        Wait(Config.globalUpdateTime)
         local voice = voice_type
         if voice_radio then
             voice = "mic_radio.png"
         end
         if Config.status.enabled == true and hudvisible == true then
             if(Config.framework == "qbcore") then
-                local QBCore = exports['qb-core']:GetCoreObject()
                 local PlayerData = QBCore.Functions.GetPlayerData()
                 if(PlayerData.metadata ~= nil) then
                     hunger = PlayerData.metadata['hunger']
@@ -376,7 +376,7 @@ Citizen.CreateThread(function()
             }
             SendNuiMessage(json.encode(data))
         end
-        Wait(1)
+        Wait(Config.globalUpdateTime)
     end
 end)
 

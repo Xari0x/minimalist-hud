@@ -16,6 +16,9 @@ Config.location = {
     bottom = 30 -- Default = 30
 }
 
+ -- Defines the hud update time, a higher value may reduce script consumption.
+Config.globalUpdateTime = 1 -- Default = 1
+
  -- Configure the speedometer component.
 Config.speedometer = {
     enabled = true, -- Default = true
