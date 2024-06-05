@@ -19,6 +19,7 @@ exports["jordqn_hud"]:setVoiceDistance(0, 1, 2, 3) -- Set voice distance on HUD.
 exports["jordqn_hud"]:setVoiceTalking(boolean) -- Displays whether the player is speaking or not.
 exports["jordqn_hud"]:setVoiceRadio(boolean) -- Displays whether the player is speaking on the radio or not.
 exports["jordqn_hud"]:setSeatBelt(boolean) -- Defines whether the belt is fastened or not.
+exports["jordqn_hud"]:hudVisibility(boolean) -- Defines whether the HUD is visible or not.
 ```
 
 **PS: The fuel level is managed by your vehicle's handling and via the native GetVehicleFuelLevel. If you use another method to manage your fuel, please don't hesitate to contact me so we can look into it together.**
@@ -28,7 +29,7 @@ In vehicle preview: https://streamable.com/fpkn4t
 In water preview: https://streamable.com/4hm6j4
 
 # Configuration
-![image|418x500](https://forum-cfx-re.akamaized.net/original/5X/a/c/d/4/acd46d1d93ada324cd179ecbc1e85aec82fbfcc1.png)
-![image|231x478](https://forum-cfx-re.akamaized.net/original/5X/1/e/4/c/1e4c163dce2ca06e2d4710b0c328d1f86d516c6c.png)
+![image|437x500](https://forum-cfx-re.akamaized.net/original/5X/d/8/6/a/d86a6020945f25881c782414fff5db66b83c4837.png)
+![image|415x500](https://forum-cfx-re.akamaized.net/original/5X/a/d/f/b/adfbf249e0fa6827fab06a82d5dc18bb4755ce64.png)
 
 This script works with [nearest-postal](https://github.com/DevBlocky/nearest-postal/tree/master) zips codes.
