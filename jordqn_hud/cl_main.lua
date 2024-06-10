@@ -28,6 +28,7 @@ Citizen.CreateThread(function()
         end
         ScaleformMovieMethodAddParamInt(3)
         EndScaleformMovieMethod()
+        SetRadarBigmapEnabled(false, false)
     end
 end)
 
