@@ -162,10 +162,6 @@ window.addEventListener('message', (event) => {
             if(event.data.hasmotor == true){
                 highbeams.style.display = "block"
                 engine.style.display = "block"
-                seatbelt.style.display = "block"
-                fuel.style.display = "block"
-                fuel_path.style.display = "block"
-                fuel_icon.style.display = "block"
                 speedometerWindow.style.marginLeft = '0px'
                 speedometerWindow.style.marginBottom = '0px'
             }else{
