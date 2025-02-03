@@ -1,6 +1,5 @@
 fx_version 'cerulean'
-
-games { "gta5" }
+game 'gta5'
 
 ui_page 'web/index.html'
 
@@ -13,7 +12,9 @@ files {
     'web/*.png'
 }
 
-client_script{
-    "config.lua",
-    "cl_*.lua"
+client_script {
+    'config.lua',
+    'cl_*.lua'
 }
+
+lua54 'yes'

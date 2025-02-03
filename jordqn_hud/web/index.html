@@ -1,71 +1,71 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="./style.css" rel="stylesheet">
-    <script defer src="script.js"></script>
-</head>
-<body>
-    <section id="speedometer">
-        <span id="speedtextkm">0</span>
-        <span id="speedtextmiles">0</span>
-        <img id="fuel-icon" class="fuel" src="gas.png">
-        <img id="beam" class="beam" src="beam.png">
-        <img id="engine" class="engine" src="engine.png">
-        <img id="seatbelt" class="seatbelt" src="seatbelt.png">
-        <svg id="speed" viewbox="0 0 200 120">
-            <path class="speedpath" d="M 20 90 A 50 50 0 1 1 100 90" fill='none' />
-            <path id="speed-svg" fill='none' class="speedvalue" d="M 20 90 A 50 50 0 1 1 100 90" />
-            <path id="fuel-path" class="fuelpath" d="M 109 90 A 20 20 0 1 0 118 58" fill='none' />
-            <path id="fuel-svg" fill='none' class="fuelvalue" d="M 109 90 A 20 20 0 1 0 118 58" />
-        </svg>
-    </section>
-    <section id="location">
-        <img id="arrow" src="arrow.png">
-        <span id="zone">Terminal</span>
-        <span id="streetname">Buccaneer Way</span>
-        <div class="bottom">
-            <span id="direction">NW</span>
-            <span id="zipcode">CP 8090</span>
-            <span id="distance">20m</span>
-        </div>
-    </section>
-    <section id="status">
-        <img id="voice" class="voice" src="mic_mute.png">
-        <div id="oxygencontainer" class="oxygen">
-            <span class="title">Oxygen</span>
-            <img src="oxygen.png">
-            <hr id="oxygen">
-            <span id="oxygentext">100%</span>
-        </div>
-        <div id="armorcontainer" class="armor">
-            <span class="title">Armor</span>
-            <img src="armor.png">
-            <hr id="armor">
-            <span id="armortext">100%</span>
-        </div>
-        <div id="thirstcontainer" class="thirst">
-            <span class="title">Thirst</span>
-            <img src="thirst.png">
-            <hr id="thirst">
-            <span id="thirsttext">100%</span>
-        </div>
-        <div id="foodcontainer" class="food">
-            <span class="title">Hunger</span>
-            <img src="food.png">
-            <hr id="food">
-            <span id="foodtext">100%</span>
-        </div>
-        <div id="healthcontainer" class="health">
-            <span class="title">Health</span>
-            <img src="health.png">
-            <hr id="health">
-            <span id="healthtext">100%</span>
-        </div>
-    </section>
-</body>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="./style.css" rel="stylesheet">
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <section id="speedometer">
+            <span id="speedtextkm">0</span>
+            <span id="speedtextmiles">0</span>
+            <img id="fuel-icon" class="fuel" src="gas.png">
+            <img id="beam" class="beam" src="beam.png">
+            <img id="engine" class="engine" src="engine.png">
+            <img id="seatbelt" class="seatbelt" src="seatbelt.png">
+            <svg id="speed" viewbox="0 0 200 120">
+                <path class="speedpath" d="M 20 90 A 50 50 0 1 1 100 90" fill='none' />
+                <path id="speed-svg" fill='none' class="speedvalue" d="M 20 90 A 50 50 0 1 1 100 90" />
+                <path id="fuel-path" class="fuelpath" d="M 109 90 A 20 20 0 1 0 118 58" fill='none' />
+                <path id="fuel-svg" fill='none' class="fuelvalue" d="M 109 90 A 20 20 0 1 0 118 58" />
+            </svg>
+        </section>
+        <section id="location">
+            <img id="arrow" src="arrow.png">
+            <span id="zone">Terminal</span>
+            <span id="streetname">Buccaneer Way</span>
+            <div class="bottom">
+                <span id="direction">NW</span>
+                <span id="zipcode">CP 8090</span>
+                <span id="distance">20m</span>
+            </div>
+        </section>
+        <section id="status">
+            <img id="voice" class="voice" src="mic_mute.png">
+            <div id="oxygencontainer" class="oxygen">
+                <span class="title">Oxygen</span>
+                <img src="oxygen.png">
+                <hr id="oxygen">
+                <span id="oxygentext">100%</span>
+            </div>
+            <div id="armorcontainer" class="armor">
+                <span class="title">Armor</span>
+                <img src="armor.png">
+                <hr id="armor">
+                <span id="armortext">100%</span>
+            </div>
+            <div id="thirstcontainer" class="thirst">
+                <span class="title">Thirst</span>
+                <img src="thirst.png">
+                <hr id="thirst">
+                <span id="thirsttext">100%</span>
+            </div>
+            <div id="foodcontainer" class="food">
+                <span class="title">Hunger</span>
+                <img src="food.png">
+                <hr id="food">
+                <span id="foodtext">100%</span>
+            </div>
+            <div id="healthcontainer" class="health">
+                <span class="title">Health</span>
+                <img src="health.png">
+                <hr id="health">
+                <span id="healthtext">100%</span>
+            </div>
+        </section>
+    </body>
 </html>
